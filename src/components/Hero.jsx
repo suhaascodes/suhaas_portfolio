@@ -109,7 +109,7 @@ const Hero = () => {
       </video>
 
       {/* Video Overlay Gradients for Cinematic Vignette and Contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 md:from-black/40 md:via-transparent md:to-transparent z-10 pointer-events-none"></div>
 
       {/* Content Container */}
       <div className="absolute inset-0 z-20 px-6 pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full">
@@ -120,7 +120,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 
             data-aos="fade-up"
-            className="text-white text-4xl md:text-6xl font-black mb-2 tracking-tight"
+            className="text-white text-4xl md:text-6xl font-black mb-2 tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-none"
           >
             Hi, I’m <span className="text-[#ff2a2a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] drop-shadow-[0_8px_24px_rgba(0,0,0,0.9)]">Suhaas Bandari</span>
           </h1>
@@ -129,7 +129,7 @@ const Hero = () => {
           <div 
             data-aos="fade-up"
             data-aos-delay="100"
-            className="h-10 md:h-14 flex items-center mb-6"
+            className="h-10 md:h-14 flex items-center mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-none"
           >
             <span className="bg-gradient-to-r from-white to-[#ff2a2a] bg-clip-text text-transparent font-black uppercase text-2xl md:text-4xl tracking-tight font-creative">
               {words[wordIndex].substring(0, subIndex)}

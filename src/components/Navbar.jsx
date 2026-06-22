@@ -91,7 +91,7 @@ const Navbar = () => {
       {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-6 opacity-100 bg-black/95 backdrop-blur-lg border-b border-white/10 shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-[600px] py-6 opacity-100 bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-3">
