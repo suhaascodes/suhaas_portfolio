@@ -87,14 +87,21 @@ const Hero = () => {
     }
   };
 
+  const handleVideoEnded = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
-        loop
         muted={isMuted}
         playsInline
+        onEnded={handleVideoEnded}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
         <source src={heroVideo} type="video/mp4" />
