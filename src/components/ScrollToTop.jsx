@@ -44,7 +44,7 @@ const ScrollToTop = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2.5"
-              d="M5 10l7-7m0 0l-7 7m7-7v18"
+              d="M5 15l7-7 7 7M12 8v12"
             />
           </svg>
         </motion.button>
