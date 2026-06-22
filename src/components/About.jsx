@@ -7,7 +7,7 @@ import DevTerminal from './DevTerminal';
 
 const About = () => {
   return (
-    <section className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="scroll-mt-20 bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         {/* Left Side: ID Badge and Skills */}
@@ -65,7 +65,7 @@ const About = () => {
           </div>
 
           {/* Skills Section */}
-          <div className="mb-8 max-w-3xl">
+          <div id="skills" className="scroll-mt-28 mb-8 max-w-3xl">
             <h3 className="text-xl font-black text-black mb-4 uppercase tracking-wider">Technical Skills</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               

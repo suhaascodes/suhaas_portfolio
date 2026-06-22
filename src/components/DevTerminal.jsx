@@ -6,12 +6,14 @@ const DevTerminal = () => {
     { text: "Type 'help' to see a list of available commands.", type: "prompt" }
   ]);
   const [input, setInput] = useState("");
-  const terminalEndRef = useRef(null);
+  const terminalBodyRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Auto-scroll to bottom of terminal
+  // Auto-scroll to bottom of terminal container only (viewport safe, no page jumps)
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   // Focus input when terminal is clicked
@@ -87,12 +89,15 @@ const DevTerminal = () => {
           <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
           <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
         </div>
-        <span className="text-white/40 text-[10px] font-bold tracking-wider uppercase">suhaas_portfolio_term</span>
+        <span className="text-white/50 text-[10px] font-bold tracking-wider uppercase font-sans">SUHAAS_PORTFOLIO TERMINAL</span>
         <div className="w-12" /> {/* Spacer */}
       </div>
 
       {/* Terminal Body */}
-      <div className="p-5 min-h-[220px] max-h-[300px] overflow-y-auto flex flex-col gap-2 scrollbar-thin scrollbar-thumb-white/10">
+      <div 
+        ref={terminalBodyRef}
+        className="p-5 min-h-[220px] max-h-[300px] overflow-y-auto flex flex-col gap-2 scrollbar-thin scrollbar-thumb-white/10 scroll-smooth"
+      >
         {history.map((line, idx) => (
           <div 
             key={idx} 
@@ -107,22 +112,30 @@ const DevTerminal = () => {
           </div>
         ))}
         
-        {/* User Input Prompt */}
-        <div className="flex items-center gap-2 text-white font-bold">
+        {/* User Input Prompt with Blinking Block Cursor */}
+        <div className="flex items-start gap-1.5 text-white font-bold relative min-h-[16px]">
           <span className="text-gray-400 shrink-0 select-none">guest@suhaas-portfolio:~$</span>
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleCommand}
-            className="bg-transparent border-none outline-none focus:ring-0 p-0 m-0 flex-1 font-mono text-xs text-green-400 caret-white"
-            autoComplete="off"
-            autoCapitalize="off"
-            spellCheck="false"
-          />
+          
+          <div className="relative flex-grow min-w-0">
+            {/* Hidden Input field capturing events */}
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleCommand}
+              className="absolute inset-0 w-full h-full opacity-0 cursor-text z-20 outline-none border-none p-0 m-0"
+              autoComplete="off"
+              autoCapitalize="off"
+              spellCheck="false"
+            />
+            {/* Visual simulation of prompt input & flashing block */}
+            <div className="font-mono text-xs text-green-400 flex items-center whitespace-pre-wrap break-all pointer-events-none relative z-10 leading-relaxed">
+              <span>{input}</span>
+              <span className="w-1.5 h-3.5 bg-green-400 ml-0.5 animate-blink inline-block shrink-0" />
+            </div>
+          </div>
         </div>
-        <div ref={terminalEndRef} />
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
+    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
