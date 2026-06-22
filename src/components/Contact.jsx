@@ -7,7 +7,7 @@ const Contact = () => {
     target: ref,
     offset: ["start end", "end start"]
   });
-  
+
   // Parallax translation for the big text
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "30%"]);
 
@@ -49,7 +49,7 @@ const Contact = () => {
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Paste your Web3Forms access key here
+          access_key: "a5fdb4c4-0b31-4440-8c70-d3db1ab42d8f", // Paste your Web3Forms access key here
           name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           message: formData.message
@@ -80,11 +80,11 @@ const Contact = () => {
   return (
     <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
       {/* Huge Background Text */}
-      <motion.div 
+      <motion.div
         style={{ y }}
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
       >
-        <h1 
+        <h1
           className="text-[25vw] leading-[0.75] font-black text-white uppercase tracking-tighter select-none scale-y-[1.6] origin-top"
           style={{ fontFamily: "'Impact', 'Arial Black', sans-serif" }}
         >
@@ -94,7 +94,7 @@ const Contact = () => {
 
       {/* Form Card Overlay */}
       <div className="relative z-10 w-full flex justify-end items-end">
-        <div 
+        <div
           data-aos="fade-up"
           className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
@@ -107,10 +107,10 @@ const Contact = () => {
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-10">
                 <div className="relative">
-                  <input 
-                    type="text" 
-                    id="firstName" 
-                    placeholder="First Name" 
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleChange}
                     required
@@ -118,10 +118,10 @@ const Contact = () => {
                   />
                 </div>
                 <div className="relative">
-                  <input 
-                    type="text" 
-                    id="lastName" 
-                    placeholder="Last Name" 
+                  <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Last Name"
                     value={formData.lastName}
                     onChange={handleChange}
                     required
@@ -129,10 +129,10 @@ const Contact = () => {
                   />
                 </div>
                 <div className="relative">
-                  <input 
-                    type="email" 
-                    id="email" 
-                    placeholder="Email" 
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -144,9 +144,9 @@ const Contact = () => {
               {/* Right Column */}
               <div className="flex-1 flex flex-col">
                 <div className="relative h-full flex flex-col">
-                  <textarea 
-                    id="message" 
-                    placeholder="Type your message here" 
+                  <textarea
+                    id="message"
+                    placeholder="Type your message here"
                     value={formData.message}
                     onChange={handleChange}
                     required
@@ -158,7 +158,7 @@ const Contact = () => {
 
             {/* Status Messages */}
             {submitStatus === 'success' && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-white font-bold text-sm bg-black/20 p-4 rounded-xl border border-white/30"
@@ -167,7 +167,7 @@ const Contact = () => {
               </motion.div>
             )}
             {submitStatus === 'error' && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-white font-bold text-sm bg-black/40 p-4 rounded-xl border border-white/20"
@@ -180,13 +180,13 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row gap-12 mt-4">
               {/* Left text */}
               <div className="flex-1 flex items-start gap-4 text-sm font-medium text-white/90">
-                <input 
-                  type="checkbox" 
-                  id="permission" 
+                <input
+                  type="checkbox"
+                  id="permission"
                   checked={formData.permission}
                   onChange={handleChange}
                   required
-                  className="mt-1 w-4 h-4 rounded-sm border-white/40 bg-transparent text-white focus:ring-white focus:ring-offset-0 focus:ring-offset-transparent cursor-pointer" 
+                  className="mt-1 w-4 h-4 rounded-sm border-white/40 bg-transparent text-white focus:ring-white focus:ring-offset-0 focus:ring-offset-transparent cursor-pointer"
                   style={{ accentColor: "white" }}
                 />
                 <label htmlFor="permission" className="cursor-pointer max-w-[280px] leading-snug">
@@ -203,9 +203,9 @@ const Contact = () => {
                   <p className="max-w-[250px] leading-relaxed">
                     For information on how to unsubscribe, please review our <a href="#" className="underline hover:text-white transition-colors">privacy policy</a>.
                   </p>
-                  
-                  <button 
-                    type="submit" 
+
+                  <button
+                    type="submit"
                     disabled={isSubmitting}
                     className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 group whitespace-nowrap self-start sm:self-auto disabled:opacity-50"
                   >
