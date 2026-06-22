@@ -1,16 +1,51 @@
-# React + Vite
+# Suhaas Bandari &bull; Developer & DevOps Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A highly interactive, premium, video-focused developer portfolio website built for **Suhaas Charan Bandari** to showcase technical expertise, academic background, DevOps skills, and creative interests.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+*   **Interactive Preloader**: Splash screen with a custom water-fill name animation and a modern "Enter Experience" entry flow which triggers unmuted playback.
+*   **Immersive Video Hero**: High-definition video loop playing with customizable play/pause and mute/unmute overlay controls.
+*   **About Card & Academic Grid**: A sleek digital badge card displaying a profile headshot alongside education credentials (CBIT Hyderabad, CSE BE, 8.62 CGPA) and categorized technical skills.
+*   **Engineering Workflow (Services)**: Scroll-triggered checkboard illustrating custom development lifecycle stages (Define & Analyze, Architect & Design, Develop & Integrate, CI/CD & Deploy).
+*   **Featured Projects**: Detailed project cards showcasing key highlights and tech tags for:
+    *   **FlowForge** — Full Stack Kanban Project Management Platform (React, Node, Express, MongoDB).
+    *   **Spotify-Inspired Web App** with a containerized Docker setup and automated GitHub Actions CI/CD.
+*   **Professional Certifications**: Grid of credentials covering Oracle Cloud Infrastructure (OCI) DevOps, OCI Foundations, Cisco Cybersecurity, and NPTEL Ethical Hacking.
+*   **Achievements & Creative Outlets**: Highlights extracurricular achievements in college hackathons, digital music production, and live piano/singing performances.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Framework**: React 19
+*   **Build Tool**: Vite
+*   **Styling**: Tailwind CSS v4 & Vanilla CSS
+*   **Animations**: Framer Motion & AOS (Animate on Scroll)
+*   **Package Manager**: npm
+
+---
+
+## ⚡ Setup & Local Development
+
+### 1. Install Dependencies
+Run a clean install to download all packages:
+```bash
+npm install
+```
+
+### 2. Run the Development Server
+Launch the local hot-reloading development server:
+```bash
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### 3. Production Build & Preview
+Compile and run the optimized production bundle:
+```bash
+npm run build
+npm run preview
+```
