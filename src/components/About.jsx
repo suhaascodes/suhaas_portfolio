@@ -3,6 +3,7 @@ import stackImage from '../assets/about/Suhaas badge image.png';
 import reactImage from '../assets/about/react.png';
 import nodeImage from '../assets/about/node.png';
 import mongoImage from '../assets/about/mongodb.png';
+import DevTerminal from './DevTerminal';
 
 const About = () => {
   return (
@@ -112,6 +113,9 @@ const About = () => {
               className="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
             />
           </div>
+
+          {/* Interactive Dev Terminal */}
+          <DevTerminal />
 
         </div>
       </div>

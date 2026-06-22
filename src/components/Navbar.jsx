@@ -53,11 +53,19 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Side: CTA Button */}
-        <div className="hidden md:block">
+        {/* Right Side: CTA Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          <a 
+            href="/Suhaas_Bandari_Resume.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-[#ff2a2a] hover:border-[#ff2a2a] hover:shadow-[0_0_15px_rgba(255,42,42,0.4)] transition-all duration-300 backdrop-blur-md"
+          >
+            Resume
+          </a>
           <a 
             href="#contact" 
-            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-[#ff2a2a] hover:border-[#ff2a2a] hover:shadow-[0_0_15px_rgba(255,42,42,0.4)] transition-all duration-300 backdrop-blur-md"
+            className="px-6 py-2.5 rounded-full bg-[#ff2a2a] border border-[#ff2a2a] text-white font-semibold hover:bg-white hover:border-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all duration-300 backdrop-blur-md"
           >
             Hire Me
           </a>
@@ -97,7 +105,15 @@ const Navbar = () => {
               {link}
             </a>
           ))}
-          <div className="pt-4 px-4">
+          <div className="pt-4 px-4 flex flex-col gap-3">
+             <a 
+               href="/Suhaas_Bandari_Resume.pdf" 
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-block px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-bold hover:bg-[#ff2a2a] transition-all w-full text-center"
+             >
+               Resume
+             </a>
              <a 
                href="#contact" 
                onClick={() => setIsOpen(false)} 
