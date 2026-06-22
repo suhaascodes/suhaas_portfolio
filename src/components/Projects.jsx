@@ -24,7 +24,7 @@ const Projects = () => {
         "Integrated MongoDB Atlas for persistence and configured production-ready REST APIs."
       ],
       tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT Auth", "REST APIs"],
-      link: "#" // Can be filled or customized
+      link: "https://suhaas-flowforge.netlify.app/"
     },
     {
       title: "Spotify-Inspired Web App",
@@ -36,7 +36,7 @@ const Projects = () => {
         "Implemented a robust CI/CD pipeline using GitHub Actions for automated builds and testing on every push."
       ],
       tags: ["HTML5", "CSS3", "JavaScript", "Docker", "GitHub Actions", "CI/CD DevOps"],
-      link: "#"
+      link: "https://spofity-clone-devops-suhaas.netlify.app/"
     }
   ];
 
@@ -84,9 +84,11 @@ const Projects = () => {
                 {project.link && (
                   <a 
                     href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-white hover:text-[#ff2a2a] transition-colors group"
                   >
-                    View Project Details
+                    Visit Live Project
                     <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
