@@ -10,10 +10,12 @@ import Achievements from './components/Achievements'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
     <>
+      <CustomCursor />
       <Preloader />
       <Navbar />
       <Hero />

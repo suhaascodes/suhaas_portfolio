@@ -29,6 +29,7 @@ const Preloader = () => {
           exit={{ y: "-100%" }}
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 w-full h-screen bg-[#ff2a2a] z-[100000] flex items-center justify-center"
+          id="preloader"
         >
           {/* Logo & Button Container */}
           <div className="flex flex-col items-center gap-12">

@@ -50,3 +50,9 @@ h2, h3, h4, h5, h6, .font-heading {
 .font-creative {
   font-family: 'Share Tech Mono', monospace;
 }
+
+@media (min-width: 768px) {
+  html, body, a, button, input, select, textarea, [role="button"], .cursor-pointer, .cursor-text {
+    cursor: none !important;
+  }
+}

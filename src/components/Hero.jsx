@@ -184,7 +184,7 @@ const Hero = () => {
             )}
           </div>
           <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-            {!isPlaying || isMuted ? "Play Reel" : "Pause"}
+            {!isPlaying || isMuted ? "Play" : "Pause"}
           </span>
         </div>
       </div>

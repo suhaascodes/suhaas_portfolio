@@ -78,6 +78,7 @@ const DevTerminal = () => {
 
   return (
     <div 
+      id="dev-terminal"
       onClick={focusInput}
       className="w-full bg-black/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden font-mono text-xs text-white max-w-3xl cursor-text mt-0"
       data-aos="fade-up"
