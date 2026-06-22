@@ -21,11 +21,11 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isOpen 
-          ? 'bg-[#ff2a2a] py-4'
+          ? 'bg-black/90 backdrop-blur-lg border-b border-white/10 py-4 shadow-2xl'
           : isScrolled 
-            ? 'bg-transparent py-4' 
+            ? 'bg-black/40 backdrop-blur-md border-b border-white/5 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)]' 
             : 'bg-transparent py-6'
       }`}
     >
@@ -34,7 +34,7 @@ const Navbar = () => {
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
           <a href="#" className="text-white text-2xl font-black tracking-tight">
-            Suhaas<span className="text-red-500">.</span>
+            Suhaas<span className="text-[#ff2a2a]">.</span>
           </a>
         </div>
 
@@ -48,7 +48,7 @@ const Navbar = () => {
             >
               {link}
               {/* Smooth hover underline */}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#ff2a2a] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <a 
             href="#contact" 
-            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md"
+            className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-[#ff2a2a] hover:border-[#ff2a2a] hover:shadow-[0_0_15px_rgba(255,42,42,0.4)] transition-all duration-300 backdrop-blur-md"
           >
             Hire Me
           </a>
@@ -83,25 +83,25 @@ const Navbar = () => {
       {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-96 py-6 opacity-100 bg-black/95 backdrop-blur-lg border-b border-white/10 shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
-        <div className="flex flex-col px-6 space-y-4">
+        <div className="flex flex-col px-6 space-y-3">
           {navLinks.map((link) => (
             <a 
               key={link} 
               href={`#${link.toLowerCase()}`}
               onClick={() => setIsOpen(false)}
-              className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors"
+              className="text-white/80 hover:text-white hover:bg-white/5 px-4 py-2.5 rounded-xl font-bold text-base transition-all duration-200"
             >
               {link}
             </a>
           ))}
-          <div className="pt-4 pb-2">
+          <div className="pt-4 px-4">
              <a 
                href="#contact" 
                onClick={() => setIsOpen(false)} 
-               className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-black hover:text-white transition-colors w-full text-center shadow-lg"
+               className="inline-block px-6 py-3 rounded-full bg-[#ff2a2a] text-white font-black hover:bg-white hover:text-black transition-colors w-full text-center shadow-lg"
              >
                Hire Me
              </a>
