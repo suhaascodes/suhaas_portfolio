@@ -9,6 +9,32 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false); // Try with sound by default
 
+  // Typewriter state
+  const words = ["Full Stack Developer", "DevOps Engineer", "CS & Cybersecurity Student"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+
+  // Typewriter effect
+  useEffect(() => {
+    if (subIndex === words[wordIndex].length + 1 && !reverse) {
+      const timer = setTimeout(() => setReverse(true), 1500); // Pause at end of word
+      return () => clearTimeout(timer);
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, reverse ? 35 : 70); // Typing & deleting speeds
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, reverse, wordIndex]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -83,14 +109,26 @@ const Hero = () => {
         
         {/* Left Side: Text and Buttons */}
         <div className="flex flex-col items-start text-left max-w-2xl w-full">
+          
           {/* Main Heading */}
           <h1 
             data-aos="fade-up"
-            className="text-white text-3xl md:text-5xl font-black mb-4 tracking-tight"
+            className="text-white text-4xl md:text-6xl font-black mb-2 tracking-tight"
           >
-            Hi, I’m <span className="text-[#ff2a2a] drop-shadow-[0_2px_8px_rgba(255,42,42,0.2)]">Suhaas Bandari</span> <br /> 
-            <span className="text-white font-black uppercase text-3xl md:text-5xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] tracking-tight">Full Stack Developer</span>
+            Hi, I’m <span className="text-[#ff2a2a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] drop-shadow-[0_8px_24px_rgba(0,0,0,0.9)]">Suhaas Bandari</span>
           </h1>
+
+          {/* Typewriter Subtitle Box */}
+          <div 
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="h-10 md:h-14 flex items-center mb-6"
+          >
+            <span className="bg-gradient-to-r from-white to-[#ff2a2a] bg-clip-text text-transparent font-black uppercase text-2xl md:text-4xl tracking-tight font-creative">
+              {words[wordIndex].substring(0, subIndex)}
+            </span>
+            <span className="text-[#ff2a2a] text-2xl md:text-4xl font-light animate-pulse ml-0.5">|</span>
+          </div>
 
           {/* Subheading */}
           <p 
