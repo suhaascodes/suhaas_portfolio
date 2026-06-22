@@ -75,6 +75,9 @@ const Hero = () => {
         Your browser does not support the video tag.
       </video>
 
+      {/* Video Overlay Gradients for Cinematic Vignette and Contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none"></div>
+
       {/* Content Container */}
       <div className="absolute inset-0 z-20 px-6 pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full">
         
@@ -85,15 +88,15 @@ const Hero = () => {
             data-aos="fade-up"
             className="text-white text-3xl md:text-5xl font-black mb-4 tracking-tight"
           >
-            Hi, I’m <span className="text-[#ff2a2a]">Suhaas Bandari</span> <br /> 
-            <span className="text-transparent [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:1.5px_white] font-black uppercase text-2xl md:text-4xl">Full Stack Developer</span>
+            Hi, I’m <span className="text-[#ff2a2a] drop-shadow-[0_2px_8px_rgba(255,42,42,0.2)]">Suhaas Bandari</span> <br /> 
+            <span className="text-white font-black uppercase text-3xl md:text-5xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] tracking-tight">Full Stack Developer</span>
           </h1>
 
           {/* Subheading */}
           <p 
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white text-sm md:text-lg font-medium mb-8 max-w-md drop-shadow-md leading-relaxed"
+            className="text-white/90 text-sm md:text-lg font-medium mb-8 max-w-md drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] leading-relaxed"
           >
             Computer Science student specializing in IoT, Cybersecurity & Blockchain. I design and build secure, scalable full-stack applications with robust CI/CD pipelines.
           </p>
