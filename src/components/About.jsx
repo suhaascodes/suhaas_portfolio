@@ -114,8 +114,32 @@ const About = () => {
             />
           </div>
 
-          {/* Interactive Dev Terminal */}
-          <DevTerminal />
+          {/* Interactive Dev Terminal with annotation */}
+          <div className="relative w-full max-w-3xl mt-16 md:mt-20">
+            {/* Hand-drawn prompt arrow */}
+            <div 
+              className="absolute -top-12 -left-16 md:-left-68 md:-top-1 flex flex-row items-center gap-1 text-black font-['Caveat',cursive] text-2xl md:text-3xl rotate-[-6deg] select-none pointer-events-none z-30"
+              data-aos="fade-right"
+              data-aos-delay="400"
+            >
+              <span>Try this! Type 'help'</span>
+              <svg 
+                className="w-12 h-12 transform rotate-[85deg] md:rotate-[15deg] text-black" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  d="M3 3c3 6 8 9 14 6m0 0l-4-4m4 4l-4 4" 
+                />
+              </svg>
+            </div>
+            
+            <DevTerminal />
+          </div>
 
         </div>
       </div>
