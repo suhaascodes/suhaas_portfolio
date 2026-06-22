@@ -99,7 +99,7 @@ const Contact = () => {
           className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
           <div className="text-xs font-bold tracking-[0.2em] mb-12 md:mb-20 uppercase opacity-90">
-            Reach Us
+            Reach Me
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">
@@ -195,17 +195,14 @@ const Contact = () => {
               </div>
 
               {/* Right text & button */}
-              <div className="flex-1 flex flex-col gap-8 text-xs text-white/70 font-medium">
-                <p className="leading-relaxed max-w-[400px]">
-                  This site is protected by reCAPTCHA and the Google <a href="#" className="underline hover:text-white transition-colors">Privacy Policy</a> and <a href="#" className="underline hover:text-white transition-colors">Terms of Service</a> apply.
-                </p>
+              <div className="flex-1 flex flex-col justify-end gap-8 text-xs text-white/70 font-medium">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
-                  <p className="max-w-[250px] leading-relaxed">
-                    For information on how to unsubscribe, please review our <a href="#" className="underline hover:text-white transition-colors">privacy policy</a>.
+                  <p className="max-w-[250px] leading-relaxed text-white/60">
+                    Your details are secure and will only be used to respond to this inquiry.
                   </p>
-
-                  <button
-                    type="submit"
+                  
+                  <button 
+                    type="submit" 
                     disabled={isSubmitting}
                     className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 group whitespace-nowrap self-start sm:self-auto disabled:opacity-50"
                   >
