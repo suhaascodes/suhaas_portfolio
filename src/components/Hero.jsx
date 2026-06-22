@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 // Adjusted import path for the video
-import heroVideo from '../assets/hero video/Developer_introduces_self_and_sk…_202606051918.mp4';
+import heroVideo from '../assets/hero video/Portfolio video.mp4';
 
 const Hero = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // Try with sound by default
 
   useEffect(() => {
     AOS.init({
@@ -15,18 +15,48 @@ const Hero = () => {
       once: true,
       easing: 'ease-out'
     });
-    // Video does NOT autoplay anymore
+
+    const handleEnter = () => {
+      setTimeout(() => {
+        if (videoRef.current) {
+          // Play with sound after a 1.5 second delay
+          videoRef.current.muted = false;
+          videoRef.current.play()
+            .then(() => {
+              setIsPlaying(true);
+              setIsMuted(false);
+            })
+            .catch((error) => {
+              console.log("Autoplay unmuted blocked:", error);
+            });
+        }
+      }, 1500);
+    };
+
+    window.addEventListener('portfolioEnter', handleEnter);
+    return () => {
+      window.removeEventListener('portfolioEnter', handleEnter);
+    };
   }, []);
 
   const toggleVideo = (e) => {
     e.stopPropagation();
     if (videoRef.current) {
-      if (videoRef.current.paused) {
+      if (isMuted) {
+        // Unmute and ensure it's playing
+        videoRef.current.muted = false;
+        setIsMuted(false);
         videoRef.current.play();
         setIsPlaying(true);
       } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
+        // Toggle play/pause if already unmuted
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+          setIsPlaying(true);
+        } else {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
       }
     }
   };
@@ -53,18 +83,19 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 
             data-aos="fade-up"
-            className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-white text-3xl md:text-5xl font-black mb-4 tracking-tight"
           >
-            Hi, I’m a <br /> <span className="text-transparent [-webkit-text-stroke:1.5px_black]">Full Stack Developer</span>
+            Hi, I’m <span className="text-[#ff2a2a]">Suhaas Bandari</span> <br /> 
+            <span className="text-transparent [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:1.5px_white] font-black uppercase text-2xl md:text-4xl">Full Stack Developer</span>
           </h1>
 
           {/* Subheading */}
           <p 
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white text-sm md:text-lg font-semibold mb-8 max-w-md drop-shadow-md"
+            className="text-white text-sm md:text-lg font-medium mb-8 max-w-md drop-shadow-md leading-relaxed"
           >
-            I build fast, scalable and modern web applications using React, Node.js and Tailwind CSS.
+            Computer Science student specializing in IoT, Cybersecurity & Blockchain. I design and build secure, scalable full-stack applications with robust CI/CD pipelines.
           </p>
 
           {/* Buttons */}
@@ -74,14 +105,20 @@ const Hero = () => {
             className="flex flex-row flex-wrap items-center gap-3 w-full"
           >
             {/* Primary Button */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md">
+            <a 
+              href="#projects" 
+              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md text-center"
+            >
               View My Work
-            </button>
+            </a>
             
             {/* Secondary Button - Glassmorphism style */}
-            <button className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md">
+            <a 
+              href="#contact" 
+              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md text-center"
+            >
               Contact Me
-            </button>
+            </a>
           </div>
         </div>
 

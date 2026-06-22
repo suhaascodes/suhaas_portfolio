@@ -17,7 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Certifications', 'Achievements', 'Contact'];
 
   return (
     <nav 
@@ -34,7 +34,7 @@ const Navbar = () => {
         {/* Left Side: Logo/Name */}
         <div className="flex items-center">
           <a href="#" className="text-white text-2xl font-black tracking-tight">
-            Leeshark<span className="text-red-500">.</span>
+            Suhaas<span className="text-red-500">.</span>
           </a>
         </div>
 
