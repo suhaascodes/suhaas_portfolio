@@ -43,9 +43,10 @@ const Footer = () => {
           <a href="mailto:bandari.suhaas12@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">bandari.suhaas12@gmail.com</a>
         </div>
         
-        <div className="flex flex-col gap-1 md:items-end pb-12 md:pb-8">
+        <div className="flex flex-col gap-1 md:items-end pb-16 md:pb-12">
           <a href="https://github.com/suhaascodes" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors underline-offset-4 decoration-1">GitHub</a>
           <a href="https://www.linkedin.com/in/suhaas-bandari-6a6a5a293/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 mt-1">LinkedIn</a>
+          <a href="https://www.instagram.com/suhaas_keys07/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 mt-1">Instagram</a>
         </div>
       </div>
     </footer>
