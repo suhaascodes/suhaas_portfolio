@@ -134,7 +134,7 @@ const DevTerminal = () => {
         break;
       case 'sudo':
         newHistory.push({
-          text: "guest is not in the sudoers file. This incident will be reported to CBIT.",
+          text: "guest is not in the sudoers file. This incident will be reported to the FBI :).",
           type: "error"
         });
         break;
