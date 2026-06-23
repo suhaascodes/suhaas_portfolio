@@ -7,12 +7,15 @@ import heroVideoWebm from '../assets/hero video/Portfolio_video_compressed.webm'
 // Import path for mobile optimized videos (720p)
 import heroVideoMobileMp4 from '../assets/hero video/Portfolio_video_mobile.mp4';
 import heroVideoMobileWebm from '../assets/hero video/Portfolio_video_mobile.webm';
+// Import path for static video poster frame (1st frame)
+import posterImage from '../assets/hero video/Portfolio_poster.jpg';
 
 const Hero = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false); // Try with sound by default
   const [videoQuality, setVideoQuality] = useState('high'); // 'high' | 'mobile'
+  const [videoLoaded, setVideoLoaded] = useState(false); // Track when video can play without buffering
 
   // Typewriter state
   const words = ["Full Stack Developer", "DevOps Engineer", "CS & Cybersecurity Student"];
@@ -64,8 +67,9 @@ const Hero = () => {
       }, 1500);
     };
 
-    // Communicate video ready state globally to the Preloader
+    // Trigger video fade-in once ready and broadcast load completion to preloader
     const handleCanPlayThrough = () => {
+      setVideoLoaded(true);
       window.isVideoReady = true;
       window.dispatchEvent(new Event('videoReady'));
     };
@@ -108,6 +112,7 @@ const Hero = () => {
   // Reload video element when dynamic source quality changes
   useEffect(() => {
     if (videoRef.current) {
+      setVideoLoaded(false);
       videoRef.current.load();
     }
   }, [videoQuality]);
@@ -143,6 +148,14 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Static Poster Image Placeholder (1st frame) */}
+      <div 
+        className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 z-[1] pointer-events-none ${
+          videoLoaded && isPlaying ? 'opacity-0' : 'opacity-100'
+        }`}
+        style={{ backgroundImage: `url(${posterImage})` }}
+      />
+
       {/* Background Video */}
       <video
         ref={videoRef}
