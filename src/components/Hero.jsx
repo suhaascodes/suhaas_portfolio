@@ -131,10 +131,10 @@ const Hero = () => {
             data-aos-delay="100"
             className="h-10 md:h-14 flex items-center mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] md:drop-shadow-none"
           >
-            <span className="bg-gradient-to-r from-white to-[#ff2a2a] bg-clip-text text-transparent font-black uppercase text-2xl md:text-4xl tracking-tight font-creative">
+            <span className="bg-gradient-to-r from-white to-[#ff2a2a] bg-clip-text text-transparent font-black uppercase text-xl sm:text-2xl md:text-4xl tracking-tight font-creative">
               {words[wordIndex].substring(0, subIndex)}
             </span>
-            <span className="text-[#ff2a2a] text-2xl md:text-4xl font-light animate-pulse ml-0.5">|</span>
+            <span className="text-[#ff2a2a] text-xl sm:text-2xl md:text-4xl font-light animate-pulse ml-0.5">|</span>
           </div>
 
           {/* Subheading */}

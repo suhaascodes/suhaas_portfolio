@@ -17,6 +17,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -25,6 +27,8 @@ body {
   background-color: #000;
   color: #fff;
   font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h2, h3, h4, h5, h6, .font-heading {
