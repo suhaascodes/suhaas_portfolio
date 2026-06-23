@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Adjusted import path for the video
-import heroVideo from '../assets/hero video/Portfolio video.mp4';
+// Import path for optimized videos
+import heroVideoMp4 from '../assets/hero video/Portfolio_video_compressed.mp4';
+import heroVideoWebm from '../assets/hero video/Portfolio_video_compressed.webm';
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -101,10 +102,12 @@ const Hero = () => {
         ref={videoRef}
         muted={isMuted}
         playsInline
+        preload="auto"
         onEnded={handleVideoEnded}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src={heroVideo} type="video/mp4" />
+        <source src={heroVideoWebm} type="video/webm" />
+        <source src={heroVideoMp4} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
