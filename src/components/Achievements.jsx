@@ -47,7 +47,7 @@ const Achievements = () => {
   return (
     <section id="achievements" className="bg-black py-32 px-6 md:px-12 w-full relative border-t border-gray-900 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-950 via-black to-black">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
         <div data-aos="fade-up" className="mb-20">
           <span className="text-[#ff2a2a] text-xs font-bold tracking-[0.2em] uppercase block mb-3">Beyond Code</span>
@@ -58,7 +58,7 @@ const Achievements = () => {
         {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {activities.map((act, idx) => (
-            <div 
+            <div
               key={idx}
               data-aos="fade-up"
               data-aos-delay={idx * 150}

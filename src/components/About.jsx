@@ -118,7 +118,7 @@ const About = () => {
           <div className="relative w-full max-w-3xl mt-16 md:mt-20">
             {/* Hand-drawn prompt arrow */}
             <div 
-              className="absolute -top-10 -left-16 md:-left-68 md:top-1 flex flex-row items-center gap-1 text-black font-['Caveat',cursive] text-2xl md:text-3xl rotate-[-6deg] select-none pointer-events-none z-30"
+              className="absolute -top-10 left-0 md:-left-68 md:top-1 flex flex-row items-center gap-1 text-black font-['Caveat',cursive] text-2xl md:text-3xl rotate-[-6deg] select-none pointer-events-none z-30"
               data-aos="fade-right"
               data-aos-delay="400"
             >

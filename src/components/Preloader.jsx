@@ -36,10 +36,10 @@ const Preloader = () => {
             <motion.div 
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative text-5xl md:text-7xl font-black tracking-tighter"
+              className="relative text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter"
             >
               {/* Background text (empty state) */}
-              <div className="text-red-900/30">
+              <div className="text-red-900/30 whitespace-nowrap">
                 Suhaas Bandari<span className="text-red-900/30">.</span>
               </div>
 
