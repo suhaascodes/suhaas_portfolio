@@ -60,9 +60,26 @@ const Hero = () => {
       }, 1500);
     };
 
+    // Communicate video ready state globally to the Preloader
+    const handleCanPlayThrough = () => {
+      window.isVideoReady = true;
+      window.dispatchEvent(new Event('videoReady'));
+    };
+
+    const videoEl = videoRef.current;
+    if (videoEl) {
+      videoEl.addEventListener('canplaythrough', handleCanPlayThrough);
+      if (videoEl.readyState >= 4) {
+        handleCanPlayThrough();
+      }
+    }
+
     window.addEventListener('portfolioEnter', handleEnter);
     return () => {
       window.removeEventListener('portfolioEnter', handleEnter);
+      if (videoEl) {
+        videoEl.removeEventListener('canplaythrough', handleCanPlayThrough);
+      }
     };
   }, []);
 

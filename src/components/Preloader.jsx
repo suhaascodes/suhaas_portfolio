@@ -6,12 +6,41 @@ const Preloader = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    // Wait for the water fill animation to finish before showing enter button
-    const timer = setTimeout(() => {
-      setShowButton(true);
+    let animationDone = false;
+    let videoReady = window.isVideoReady || false;
+
+    const checkAndShowButton = () => {
+      if (animationDone && videoReady) {
+        setShowButton(true);
+      }
+    };
+
+    // 1. Water fill animation timer (2s)
+    const animTimer = setTimeout(() => {
+      animationDone = true;
+      checkAndShowButton();
     }, 2000);
-    
-    return () => clearTimeout(timer);
+
+    // 2. Fallback timer (5s) to guarantee user can enter
+    const fallbackTimer = setTimeout(() => {
+      videoReady = true;
+      animationDone = true;
+      setShowButton(true);
+    }, 5000);
+
+    // 3. Listen to videoReady event
+    const handleVideoReady = () => {
+      videoReady = true;
+      checkAndShowButton();
+    };
+
+    window.addEventListener('videoReady', handleVideoReady);
+
+    return () => {
+      clearTimeout(animTimer);
+      clearTimeout(fallbackTimer);
+      window.removeEventListener('videoReady', handleVideoReady);
+    };
   }, []);
 
   useEffect(() => {
