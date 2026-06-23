@@ -1,14 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Import path for optimized videos
+// Import path for optimized videos (Desktop 1080p)
 import heroVideoMp4 from '../assets/hero video/Portfolio_video_compressed.mp4';
 import heroVideoWebm from '../assets/hero video/Portfolio_video_compressed.webm';
+// Import path for mobile optimized videos (720p)
+import heroVideoMobileMp4 from '../assets/hero video/Portfolio_video_mobile.mp4';
+import heroVideoMobileWebm from '../assets/hero video/Portfolio_video_mobile.webm';
 
 const Hero = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false); // Try with sound by default
+  const [videoQuality, setVideoQuality] = useState('high'); // 'high' | 'mobile'
 
   // Typewriter state
   const words = ["Full Stack Developer", "DevOps Engineer", "CS & Cybersecurity Student"];
@@ -67,8 +71,23 @@ const Hero = () => {
     };
 
     const videoEl = videoRef.current;
+    let speedCheckTimer;
+
     if (videoEl) {
       videoEl.addEventListener('canplaythrough', handleCanPlayThrough);
+      
+      // Dynamic connection check: if loading the high-quality desktop video takes
+      // longer than 3.5 seconds on mobile screens, downgrade to mobile-optimized 720p version.
+      if (videoQuality === 'high') {
+        speedCheckTimer = setTimeout(() => {
+          const isMobileScreen = window.innerWidth < 768;
+          if (isMobileScreen && videoEl.readyState < 4) {
+            console.log("Slow mobile connection detected (threshold 3.5s). Downgrading video quality to 720p.");
+            setVideoQuality('mobile');
+          }
+        }, 3500);
+      }
+
       if (videoEl.readyState >= 4) {
         handleCanPlayThrough();
       }
@@ -80,8 +99,18 @@ const Hero = () => {
       if (videoEl) {
         videoEl.removeEventListener('canplaythrough', handleCanPlayThrough);
       }
+      if (speedCheckTimer) {
+        clearTimeout(speedCheckTimer);
+      }
     };
-  }, []);
+  }, [videoQuality]);
+
+  // Reload video element when dynamic source quality changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [videoQuality]);
 
   const toggleVideo = (e) => {
     e.stopPropagation();
@@ -123,8 +152,8 @@ const Hero = () => {
         onEnded={handleVideoEnded}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src={heroVideoWebm} type="video/webm" />
-        <source src={heroVideoMp4} type="video/mp4" />
+        <source src={videoQuality === 'high' ? heroVideoWebm : heroVideoMobileWebm} type="video/webm" />
+        <source src={videoQuality === 'high' ? heroVideoMp4 : heroVideoMobileMp4} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
