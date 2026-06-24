@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -51,7 +51,9 @@ const Achievements = () => {
         {/* Header */}
         <div data-aos="fade-up" className="mb-20">
           <span className="text-[#ff2a2a] text-xs font-bold tracking-[0.2em] uppercase block mb-3">Beyond Code</span>
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">Achievements & Creative Outlets</h2>
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">
+            Achievements & Creative Outlets
+          </h2>
           <div className="w-20 h-1 bg-[#ff2a2a] mt-6"></div>
         </div>
 

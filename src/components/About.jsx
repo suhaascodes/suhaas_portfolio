@@ -1,13 +1,9 @@
-import React from 'react';
 import stackImage from '../assets/about/Suhaas badge image.png';
-import reactImage from '../assets/about/react.png';
-import nodeImage from '../assets/about/node.png';
-import mongoImage from '../assets/about/mongodb.png';
 import DevTerminal from './DevTerminal';
 
 const About = () => {
   return (
-    <section id="about" className="scroll-mt-20 bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="scroll-mt-20 bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative font-sans">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         {/* Left Side: ID Badge and Skills */}
@@ -65,7 +61,7 @@ const About = () => {
           </div>
 
           {/* Skills Section */}
-          <div id="skills" className="scroll-mt-28 mb-8 max-w-3xl">
+          <div id="about-skills" className="scroll-mt-28 mb-8 max-w-3xl">
             <h3 className="text-xl font-black text-black mb-4 uppercase tracking-wider">Technical Skills</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
@@ -90,28 +86,6 @@ const About = () => {
               </div>
               
             </div>
-          </div>
-
-          {/* Horizontal Skills Row (Transparent & Large) */}
-          <div className="flex items-center gap-6 md:gap-10 mt-8">
-            <img 
-              data-aos="zoom-in" data-aos-delay="300"
-              src={reactImage} 
-              alt="React" 
-              className="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="450"
-              src={nodeImage} 
-              alt="Node.js" 
-              className="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
-            <img 
-              data-aos="zoom-in" data-aos-delay="600"
-              src={mongoImage} 
-              alt="MongoDB" 
-              className="w-16 h-16 md:w-20 md:h-20 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer drop-shadow-2xl" 
-            />
           </div>
 
           {/* Interactive Dev Terminal with annotation */}
@@ -145,8 +119,8 @@ const About = () => {
       </div>
 
       {/* Torn paper divider at bottom */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30 transform translate-y-1">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-white">
+      <div className="absolute -bottom-[4px] left-0 w-full pointer-events-none z-30 transform translate-y-[4px]">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-black">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.62,189.5,99.8,242.79,81.82,282.88,63.6,321.39,56.44Z"></path>
         </svg>
       </div>

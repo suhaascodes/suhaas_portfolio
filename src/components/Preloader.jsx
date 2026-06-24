@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Preloader = () => {
@@ -58,6 +58,7 @@ const Preloader = () => {
   }, [isLoading]);
 
   const handleEnter = () => {
+    window.playUiClick?.(); // Trigger click sound immediately
     setIsLoading(false);
     // Dispatch global event to trigger unmuted video play
     window.dispatchEvent(new Event('portfolioEnter'));

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 // Import path for optimized videos (Desktop 1080p)
@@ -15,7 +15,7 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false); // Try with sound by default
   const [videoQuality, setVideoQuality] = useState('high'); // 'high' | 'mobile'
-  const [videoLoaded, setVideoLoaded] = useState(false); // Track when video can play without buffering
+
 
   // Typewriter state
   const words = ["Full Stack Developer", "DevOps Engineer", "CS & Cybersecurity Student"];
@@ -31,9 +31,11 @@ const Hero = () => {
     }
 
     if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setWordIndex((prev) => (prev + 1) % words.length);
-      return;
+      const timer = setTimeout(() => {
+        setReverse(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
+      }, 0);
+      return () => clearTimeout(timer);
     }
 
     const timeout = setTimeout(() => {
@@ -41,6 +43,7 @@ const Hero = () => {
     }, reverse ? 35 : 70); // Typing & deleting speeds
 
     return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subIndex, reverse, wordIndex]);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ const Hero = () => {
     const handleEnter = () => {
       setTimeout(() => {
         if (videoRef.current) {
-          // Play with sound after a 1.5 second delay
+          // Play with sound after a 1.5 second delay (allowing preloader exit to fully finish)
           videoRef.current.muted = false;
           videoRef.current.play()
             .then(() => {
@@ -67,9 +70,7 @@ const Hero = () => {
       }, 1500);
     };
 
-    // Trigger video fade-in once ready and broadcast load completion to preloader
     const handleCanPlayThrough = () => {
-      setVideoLoaded(true);
       window.isVideoReady = true;
       window.dispatchEvent(new Event('videoReady'));
     };
@@ -109,10 +110,8 @@ const Hero = () => {
     };
   }, [videoQuality]);
 
-  // Reload video element when dynamic source quality changes
   useEffect(() => {
     if (videoRef.current) {
-      setVideoLoaded(false);
       videoRef.current.load();
     }
   }, [videoQuality]);
@@ -148,20 +147,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Static Poster Image Placeholder (1st frame) */}
-      <div 
-        className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 z-[1] pointer-events-none ${
-          videoLoaded && isPlaying ? 'opacity-0' : 'opacity-100'
-        }`}
-        style={{ backgroundImage: `url(${posterImage})` }}
-      />
-
-      {/* Background Video */}
+      {/* Background Video with Native Poster */}
       <video
         ref={videoRef}
         muted={isMuted}
         playsInline
         preload="auto"
+        poster={posterImage}
         onEnded={handleVideoEnded}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >

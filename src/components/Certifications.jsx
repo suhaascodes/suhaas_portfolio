@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -76,7 +76,9 @@ const Certifications = () => {
         {/* Header */}
         <div data-aos="fade-up" className="mb-20">
           <span className="text-black text-xs font-bold tracking-[0.2em] uppercase block mb-3">Validation</span>
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">Professional Certifications</h2>
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight">
+            Professional Certifications
+          </h2>
           <div className="w-20 h-1 bg-black mt-6"></div>
         </div>
 

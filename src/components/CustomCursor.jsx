@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
@@ -74,6 +74,7 @@ const CustomCursor = () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('mouseover', handleMouseOver);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hidden]);
 
   if (hidden) return null;
